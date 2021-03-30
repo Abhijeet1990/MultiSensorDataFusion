@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -ex
+
+
+# This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
+
+# for running the SupervisedLearning.py the arguments passed are the  (i)use case, (ii) if PCA feature reduction done
+# (iii) if pure cyber features (iv) if pure physical features (v) Location, either "master","router", or "DS"
+#python -u SupervisedLearning.py "UC2_10OS_poll30" "False" "False" "False" "DS"
+
+# for running the CoTraining.py the arguments passed are the  (i)use case, (ii) if PCA feature reduction done
+# (iii) if pure cyber features (iv) if pure physical features (v) Location, either "master","router", or "DS"
+#python -u CoTraining.py "UC2_10OS_poll30" "False" "False" "False" "DS"
+
+# for running the FetchEachStepData.py the arguments passed are the  (i)use case, (ii) Determine the stage in the data pre-processing. The valid numbers are from 1 to 8. (iii) Location, either "master","router", or "DS" (iv) Boolean indicating : if connected to Elasticsearch database (those who havent setup the elasticsearch DB with packetbeat to interact with CORE should set to False)
+python -u FetchEachStepData.py "UC2_10OS_poll30" "8" "master" False
